@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy') {
             steps {
                sh "gcloud docker -- push ${image_name}"
-               sh "helm install --namespace golang --name web chart/golangweb"
+               sh "helm install --namespace golangweb --name web chart/golangweb"
             }
         }
     }
