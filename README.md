@@ -349,7 +349,7 @@ tar -zxvf helm-v2.8.0-linux-amd64.tgz
 mv linux-amd64/helm /usr/local/bin/helm
 ```
 
-4) Create Service Account
+4) Create Service Account and grant Container Engine, Compute Engine, and Storage permission to the account
 5) Copy key file to `/var/lib/jenkins/service-account.json`
 6) Change file owner `chown jenkins:jenkins /var/lib/jenkins/service-account.json`
 7) Change to jenkins user `su jenkins`
@@ -358,3 +358,6 @@ mv linux-amd64/helm /usr/local/bin/helm
 10) Initialize helm `helm init`
 11) Generate ssh key `ssh-keygen -t rsa -b 4096 -o`
 12) Add ssh key to GitHub
+13) Go to Jenkins and add credential. Choose `SSH username & password`, then select loading ssh key from `~/.ssh`
+14) Install docker https://docs.docker.com/install/linux/docker-ce/ubuntu/
+15) Now you are ready to create a new Pipeline Job. In Job configuration, choose download Jenkins file from SCM. Then you are ready to build.
